@@ -4,7 +4,6 @@ A fun and minimal **Tic Tac Toe** game made with **Flutter**. Two-player game wi
 
 ![Flutter](https://img.shields.io/badge/Flutter-Game-blue?logo=flutter)
 ![Platform](https://img.shields.io/badge/Platform-Android%20%7C%20iOS-lightgrey)
-![License](https://img.shields.io/badge/License-MIT-green)
 
 ## 🚀 Features
 
@@ -23,7 +22,7 @@ A fun and minimal **Tic Tac Toe** game made with **Flutter**. Two-player game wi
 ### Run Locally
 
 ```bash
-git clone https://github.com/your-username/tic_tac_toe_flutter.git
-cd tic_tac_toe_flutter
+https://github.com/dhrruvchotai/Tic-Tac-Toe.git
+cd Tic-Tac-Toe
 flutter pub get
 flutter run
