@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -34,9 +35,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       height: 50,
                       width: 50,
                       decoration: BoxDecoration(
-                        color: Colors.yellow.withOpacity(0.1),
+                        color: Colors.black.withOpacity(0.1),
                         border: Border.all(width: 1),
-                        borderRadius: BorderRadius.circular(22),
+                        borderRadius: BorderRadius.circular(18),
                       ),
                       child: const Icon(Icons.menu, size: 35),
                     ),
@@ -53,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 100,bottom: 100,left: 10,right: 10),
+                padding: const EdgeInsets.only(top: 10,bottom: 100,left: 10,right: 10),
                 child: Container(
                   height: 300,
                   decoration: BoxDecoration(
@@ -68,7 +69,26 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(
                   width: 300,
                   height: 70,
-                  child: ElevatedButton(onPressed: (){}, child: Text("Play vs Computer",style:TextStyle(color: Colors.white,fontSize: 25)),style: ElevatedButton.styleFrom(backgroundColor:Colors.blue[500],side: BorderSide(color: Colors.black,strokeAlign: 2,width: 3)),))
+                  child: ElevatedButton(onPressed: (){
+                    Navigator.pushReplacementNamed(context, "/select_game_details",arguments: {"isGameVsComputer" : true});
+                  }, child: Text("Play vs Computer",
+                    style: GoogleFonts.orbitron(
+                      color: Colors.white,
+                      fontSize: 20,
+                    ),
+                  ),style: ElevatedButton.styleFrom(backgroundColor:Colors.blue[500],side: BorderSide(color: Colors.black,strokeAlign: 2,width: 3)),)),
+              SizedBox(height: 50,),
+              SizedBox(
+                  width: 300,
+                  height: 70,
+                  child: ElevatedButton(onPressed: (){
+                    Navigator.pushReplacementNamed(context, "/select_game_details",arguments: {"isGameVsComputer" : false});
+                  }, child: Text("Local Multiplayer",
+                    style: GoogleFonts.orbitron(
+                      color: Colors.white,
+                      fontSize: 20,
+                    ),
+                  ),style: ElevatedButton.styleFrom(backgroundColor:Colors.blue[500],side: BorderSide(color: Colors.black,strokeAlign: 2,width: 3)),))
             ],
           ),
         ),
@@ -156,9 +176,9 @@ class _HomeScreenState extends State<HomeScreen> {
       leading: Icon(icon, color: Colors.white),
       title: Text(
         title,
-        style: TextStyle(
+        style: GoogleFonts.orbitron(
           color: Colors.white,
-          fontSize: 16,
+          fontSize: 18,
         ),
       ),
       onTap: onTap,

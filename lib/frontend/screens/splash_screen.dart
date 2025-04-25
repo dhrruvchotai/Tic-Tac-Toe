@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
+
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -7,54 +9,135 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMixin {
-
-  late AnimationController _controller;
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  late AnimationController _drawingController;
+  late AnimationController _typingController;
+  bool _showTic = false;
+  bool _showTac = false;
+  bool _showToe = false;
 
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(
-      duration: Duration(seconds: 4),
+
+    _drawingController = AnimationController(
+      duration: Duration(seconds: 7),
       vsync: this,
     );
 
-    _controller.addStatusListener((status) {
-      if (status == AnimationStatus.completed) {
-        Navigator.pushNamed(context, "/home");
-      }
+    _typingController = AnimationController(
+      duration: Duration(seconds: 7),
+      vsync: this,
+    );
+
+    _drawingController.forward();
+    _typingController.forward();
+
+    // Animate words sequentially
+    Future.delayed(Duration(milliseconds: 1200), () {
+      setState(() => _showTic = true);
+      Future.delayed(Duration(milliseconds: 1200), () {
+        setState(() => _showTac = true);
+        Future.delayed(Duration(milliseconds: 1200), () {
+          setState(() => _showToe = true);
+        });
+      });
     });
 
-    _controller.forward();
+    Future.delayed(Duration(milliseconds: 6200), () {
+      Navigator.pushReplacementNamed(context, '/home');
+    });
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    _drawingController.dispose();
+    _typingController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue[800],
+      backgroundColor: Colors.yellow[100],
       body: Center(
-        child: Lottie.asset(
-          'lib/frontend/assets/json/splash_animation_main.json',
-          controller: _controller,
-
-          onLoaded: (composition) {
-            _controller
-              ..duration = composition.duration
-              ..forward();
-
-            _controller.addStatusListener((status) {
-              if (status == AnimationStatus.completed) {
-                Navigator.pushReplacementNamed(context, '/home');
-              }
-            });
-
-          },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Lottie.asset(
+              'lib/frontend/assets/json/splash_animation_main.json',
+              controller: _drawingController,
+              onLoaded: (composition) {
+                _drawingController
+                  ..duration = composition.duration
+                  ..forward();
+              },
+            ),
+            SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                AnimatedOpacity(
+                  opacity: _showTic ? 1.0 : 0.0,
+                  duration: Duration(milliseconds: 800),
+                  child: Text(
+                    'Tic ',
+                    style: GoogleFonts.orbitron(
+                      fontSize: 45.0,
+                      fontWeight: FontWeight.w700,
+                      color: Colors.blue[800],
+                      shadows: [
+                        Shadow(
+                          blurRadius: 7.0,
+                          color: Colors.black38,
+                          offset: Offset(2.0, 2.0),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(width: 5),
+                AnimatedOpacity(
+                  opacity: _showTac ? 1.0 : 0.0,
+                  duration: Duration(milliseconds: 800),
+                  child: Text(
+                    'Tac ',
+                    style: GoogleFonts.orbitron(
+                      fontSize: 45.0,
+                      fontWeight: FontWeight.w700,
+                      color: Colors.black87,
+                      shadows: [
+                        Shadow(
+                          blurRadius: 7.0,
+                          color: Colors.black38,
+                          offset: Offset(2.0, 2.0),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(width: 5),
+                AnimatedOpacity(
+                  opacity: _showToe ? 1.0 : 0.0,
+                  duration: Duration(milliseconds: 800),
+                  child: Text(
+                    'Toe',
+                    style: GoogleFonts.orbitron(
+                      fontSize: 45.0,
+                      fontWeight: FontWeight.w700,
+                      color: Colors.red[400],
+                      shadows: [
+                        Shadow(
+                          blurRadius: 7.0,
+                          color: Colors.black38,
+                          offset: Offset(2.0, 2.0),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );

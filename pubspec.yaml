@@ -38,6 +38,8 @@ dependencies:
   lottie:
   #For Fonts
   google_fonts:
+  #For Writing Text Animation
+  animated_text_kit:
 
 dev_dependencies:
   flutter_test:
