@@ -81,7 +81,8 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
                   duration: Duration(milliseconds: 800),
                   child: Text(
                     'Tic ',
-                    style: GoogleFonts.orbitron(
+                    style: TextStyle(
+                      fontFamily: "Orbitron",
                       fontSize: 45.0,
                       fontWeight: FontWeight.w700,
                       color: Colors.blue[800],
@@ -101,7 +102,8 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
                   duration: Duration(milliseconds: 800),
                   child: Text(
                     'Tac ',
-                    style: GoogleFonts.orbitron(
+                    style: TextStyle(
+                      fontFamily: "Orbitron",
                       fontSize: 45.0,
                       fontWeight: FontWeight.w700,
                       color: Colors.black87,
@@ -121,7 +123,8 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
                   duration: Duration(milliseconds: 800),
                   child: Text(
                     'Toe',
-                    style: GoogleFonts.orbitron(
+                    style:TextStyle(
+                      fontFamily: "Orbitron",
                       fontSize: 45.0,
                       fontWeight: FontWeight.w700,
                       color: Colors.red[400],

@@ -33,9 +33,9 @@ class _PlayVsComputerScreenState extends State<PlayVsComputerScreen> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text("Tic", style: GoogleFonts.orbitron(color: Colors.blue[800], fontSize: 35)),
-                Text("Tac", style: GoogleFonts.orbitron(color: Colors.black87, fontSize: 35)),
-                Text("Toe", style: GoogleFonts.orbitron(color: Colors.red[400], fontSize: 35)),
+                Text("Tic", style: TextStyle(color: Colors.blue[800], fontSize: 35,fontFamily: "Orbitron")),
+                Text("Tac", style: TextStyle(color: Colors.black87, fontSize: 35,fontFamily: "Orbitron")),
+                Text("Toe", style: TextStyle(color: Colors.red[400], fontSize: 35,fontFamily: "Orbitron")),
               ],
             ),
           ),
@@ -87,7 +87,8 @@ class _PlayVsComputerScreenState extends State<PlayVsComputerScreen> {
                             child: Text(
                               widget.PlayerName!,
                               overflow: TextOverflow.ellipsis,
-                              style: GoogleFonts.poppins(
+                              style: TextStyle(
+                                  fontFamily: "Poppins",
                                   color: Colors.white,
                                   fontSize : 20,
                                   fontWeight: FontWeight.w800,
@@ -109,7 +110,8 @@ class _PlayVsComputerScreenState extends State<PlayVsComputerScreen> {
                                   padding: const EdgeInsets.only(right: 5,bottom: 1),
                                   child: Text(
                                     widget.PlayerSelectedSymbol!,
-                                    style: GoogleFonts.orbitron(
+                                    style: TextStyle(
+                                        fontFamily: "Orbitron",
                                         color: widget.PlayerSelectedSymbol == "x" ? Colors.red : Colors.blue,
                                         fontSize : 40,
                                         fontWeight: FontWeight.w800,
@@ -147,7 +149,8 @@ class _PlayVsComputerScreenState extends State<PlayVsComputerScreen> {
                             child: Text(
                               "Computer",
                               overflow: TextOverflow.ellipsis,
-                              style: GoogleFonts.poppins(
+                              style: TextStyle(
+                                  fontFamily: "Orbitron",
                                   color: Colors.white,
                                   fontSize : 20,
                                   fontWeight: FontWeight.w800,
@@ -169,7 +172,8 @@ class _PlayVsComputerScreenState extends State<PlayVsComputerScreen> {
                                   padding: const EdgeInsets.only(right: 5,bottom: 1),
                                   child: Text(
                                     widget.PlayerSelectedSymbol! == "x" ? "o" : "x",
-                                    style: GoogleFonts.orbitron(
+                                    style: TextStyle(
+                                        fontFamily: "Orbitron",
                                         color: widget.PlayerSelectedSymbol == "x" ? Colors.blue : Colors.red,
                                         fontSize : 40,
                                         fontWeight: FontWeight.w800,
@@ -195,41 +199,40 @@ class _PlayVsComputerScreenState extends State<PlayVsComputerScreen> {
                     color: Colors.black.withOpacity(0.2),
                     borderRadius: BorderRadius.circular(20)
                   ),
-                  child: Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.all(20.0),
-                      child: GridView.builder(
-                        itemCount: 9,
-                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 3,
-                          mainAxisSpacing: 10,  // Add spacing between rows
-                          crossAxisSpacing: 10, // Add spacing between columns
-                          childAspectRatio: 1,  // Make cells square
-                        ),
-                        itemBuilder: (context, index) {
-                          return GestureDetector(
-                            onTap: (){
-                              setSymbolAccordingToTurn(index);
-                            },
-                            child: Container(
-                              decoration: BoxDecoration(
-                                color: Colors.yellowAccent[100],
-                                borderRadius: BorderRadius.circular(15),
-                                border: Border.all(color: Colors.black54, width: 3),
-                              ),
-                              child: Center(
-                                child: Text(
-                                  displaySymbol[index],
-                                  style: GoogleFonts.orbitron(
-                                    fontSize: 60,
-                                    color:displaySymbol[index] == "x" ? Colors.red[400] : Colors.blue[800],
-                                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: GridView.builder(
+                      itemCount: 9,
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 3,
+                        mainAxisSpacing: 10,  // Add spacing between rows
+                        crossAxisSpacing: 10, // Add spacing between columns
+                        childAspectRatio: 1,  // Make cells square
+                      ),
+                      itemBuilder: (context, index) {
+                        return GestureDetector(
+                          onTap: (){
+                            setSymbolAccordingToTurn(index);
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.yellowAccent[100],
+                              borderRadius: BorderRadius.circular(15),
+                              border: Border.all(color: Colors.black54, width: 3),
+                            ),
+                            child: Center(
+                              child: Text(
+                                displaySymbol[index],
+                                style: TextStyle(
+                                  fontFamily: "Orbitron",
+                                  fontSize: 60,
+                                  color:displaySymbol[index] == "x" ? Colors.red[400] : Colors.blue[800],
                                 ),
                               ),
                             ),
-                          );
-                        },
-                      ),
+                          ),
+                        );
+                      },
                     ),
                   ),
                 ),
@@ -342,7 +345,7 @@ class _PlayVsComputerScreenState extends State<PlayVsComputerScreen> {
                 SizedBox(height: 10),
                 Text(
                     'Game Over!',
-                    style: GoogleFonts.orbitron()
+                    style: TextStyle(fontFamily: "Orbitron"),
                 ),
               ],
             ),
@@ -351,7 +354,7 @@ class _PlayVsComputerScreenState extends State<PlayVsComputerScreen> {
             padding: const EdgeInsets.only(left: 14),
             child: Text(
               message,
-              style: GoogleFonts.poppins(fontSize: 25),
+              style: TextStyle(fontSize: 25,fontFamily: "Poppins"),
               textAlign: TextAlign.center,
             ),
           ),
@@ -360,7 +363,7 @@ class _PlayVsComputerScreenState extends State<PlayVsComputerScreen> {
               onPressed: () => Navigator.pushReplacementNamed(context, "/home"),
               child: Text(
                 "Back to Home",
-                style: GoogleFonts.poppins(color: Colors.red[400]),
+                style: TextStyle(color: Colors.red[400],fontFamily: "Poppins"),
               ),
             ),
             TextButton(
@@ -370,7 +373,7 @@ class _PlayVsComputerScreenState extends State<PlayVsComputerScreen> {
               },
               child: Text(
                 "Play Again!",
-                style: GoogleFonts.poppins(color: Colors.blue[800]),
+                style: TextStyle(color: Colors.blue[800],fontFamily: "Poppins"),
               ),
             ),
           ],

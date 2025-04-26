@@ -35,9 +35,9 @@ class _LocalMultiplayerScreenState extends State<LocalMultiplayerScreen> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text("Tic", style: GoogleFonts.orbitron(color: Colors.blue[800], fontSize: 35)),
-                Text("Tac", style: GoogleFonts.orbitron(color: Colors.black87, fontSize: 35)),
-                Text("Toe", style: GoogleFonts.orbitron(color: Colors.red[400], fontSize: 35)),
+                Text("Tic", style: TextStyle(color: Colors.blue[800], fontSize: 35,fontFamily: "Orbitron")),
+                Text("Tac", style: TextStyle(color: Colors.black87, fontSize: 35,fontFamily: "Orbitron")),
+                Text("Toe", style: TextStyle(color: Colors.red[400], fontSize: 35,fontFamily: "Orbitron")),
               ],
             ),
           ),
@@ -90,7 +90,8 @@ class _LocalMultiplayerScreenState extends State<LocalMultiplayerScreen> {
                           child: Text(
                             widget.PlayerOneName ?? "Player 1",
                             overflow: TextOverflow.ellipsis,
-                            style: GoogleFonts.poppins(
+                            style: TextStyle(
+                                fontFamily: "Poppins",
                                 color: Colors.white,
                                 fontSize : 20,
                                 fontWeight: FontWeight.w800,
@@ -112,7 +113,8 @@ class _LocalMultiplayerScreenState extends State<LocalMultiplayerScreen> {
                                 padding: const EdgeInsets.only(right: 5,bottom: 1),
                                 child: Text(
                                   widget.PlayerOneSelectedSymbol!,
-                                  style: GoogleFonts.orbitron(
+                                  style: TextStyle(
+                                      fontFamily: "Orbitron",
                                       color: widget.PlayerOneSelectedSymbol == "x" ? Colors.red : Colors.blue,
                                       fontSize : 40,
                                       fontWeight: FontWeight.w800,
@@ -148,7 +150,8 @@ class _LocalMultiplayerScreenState extends State<LocalMultiplayerScreen> {
                           child: Text(
                             widget.PlayerTwoName ?? "Player 2",
                             overflow: TextOverflow.ellipsis,
-                            style: GoogleFonts.poppins(
+                            style: TextStyle(
+                                fontFamily: "Poppins",
                                 color: Colors.white,
                                 fontSize : 20,
                                 fontWeight: FontWeight.w800,
@@ -170,7 +173,8 @@ class _LocalMultiplayerScreenState extends State<LocalMultiplayerScreen> {
                                 padding: const EdgeInsets.only(right: 5,bottom: 1),
                                 child: Text(
                                   widget.PlayerTwoSelectedSymbol!,
-                                  style: GoogleFonts.orbitron(
+                                  style: TextStyle(
+                                      fontFamily: "Orbitron",
                                       color: widget.PlayerTwoSelectedSymbol == "o" ? Colors.blue : Colors.red,
                                       fontSize : 40,
                                       fontWeight: FontWeight.w800,
@@ -212,7 +216,8 @@ class _LocalMultiplayerScreenState extends State<LocalMultiplayerScreen> {
                         child: Center(
                           child: Text(
                             displaySymbol[index],
-                            style: GoogleFonts.orbitron(
+                            style: TextStyle(
+                              fontFamily: "Orbitron",
                               fontSize: 60,
                               color: displaySymbol[index] == "x"
                                   ? Colors.red[400]
@@ -301,7 +306,7 @@ class _LocalMultiplayerScreenState extends State<LocalMultiplayerScreen> {
                 SizedBox(height: 10),
                 Text(
                     'Game Over!',
-                    style: GoogleFonts.orbitron()
+                    style: TextStyle(fontFamily: "Orbitron")
                 ),
               ],
             ),
@@ -313,12 +318,12 @@ class _LocalMultiplayerScreenState extends State<LocalMultiplayerScreen> {
             child: Text(
                 message,
                 textAlign: TextAlign.center,
-                style: GoogleFonts.poppins(fontSize: 25))),
+                style: TextStyle(fontSize: 25,fontFamily: "Poppins"))),
           ),
           actions: [
             TextButton(
               onPressed: () => Navigator.pushReplacementNamed(context, "/home"),
-              child: Text("Back to Home", style: GoogleFonts.poppins(color: Colors.red[400])),
+              child: Text("Back to Home", style: TextStyle(color: Colors.red[400],fontFamily: "Poppins")),
             ),
             TextButton(
               onPressed: () {
@@ -328,7 +333,7 @@ class _LocalMultiplayerScreenState extends State<LocalMultiplayerScreen> {
                   isPlayerOneTurn = true;
                 });
               },
-              child: Text("Play Again!", style: GoogleFonts.poppins(color: Colors.blue[800])),
+              child: Text("Play Again!", style: TextStyle(color: Colors.blue[800],fontFamily: "Poppins")),
             ),
           ],
         ),

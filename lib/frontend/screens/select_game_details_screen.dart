@@ -42,9 +42,9 @@ class _SelectGameDetailsScreenState extends State<SelectGameDetailsScreen> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text("Tic", style: GoogleFonts.orbitron(color: Colors.blue[800], fontSize: 35)),
-                Text("Tac", style: GoogleFonts.orbitron(color: Colors.black87, fontSize: 35)),
-                Text("Toe", style: GoogleFonts.orbitron(color: Colors.red[400], fontSize: 35)),
+                Text("Tic", style: TextStyle(color: Colors.blue[800], fontSize: 35,fontFamily: "Orbitron")),
+                Text("Tac", style: TextStyle(color: Colors.black87, fontSize: 35,fontFamily: "Orbitron")),
+                Text("Toe", style: TextStyle(color: Colors.red[400], fontSize: 35,fontFamily: "Orbitron")),
               ],
             ),
           ),
@@ -85,7 +85,8 @@ class _SelectGameDetailsScreenState extends State<SelectGameDetailsScreen> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(bottom: 7),
-                      child: Text("Your Name   ", style: GoogleFonts.orbitron(
+                      child: Text("Your Name   ", style: TextStyle(
+                          fontFamily: "Orbitron",
                           fontSize: 22,
                           fontWeight: FontWeight.w700
                       )),
@@ -95,7 +96,7 @@ class _SelectGameDetailsScreenState extends State<SelectGameDetailsScreen> {
                         padding: const EdgeInsets.only(left: 15),
                         child: TextFormField(
                           controller: PlayerName,
-                          style: GoogleFonts.poppins(color: Colors.black87, fontWeight: FontWeight.w600, fontSize: 18),
+                          style: TextStyle(color: Colors.black87, fontWeight: FontWeight.w600, fontSize: 18,fontFamily: "Poppins"),
                           inputFormatters: [
                             LengthLimitingTextInputFormatter(10),
                           ],
@@ -121,7 +122,8 @@ class _SelectGameDetailsScreenState extends State<SelectGameDetailsScreen> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(bottom: 5),
-                      child: Text("Avatar", style: GoogleFonts.orbitron(
+                      child: Text("Avatar", style: TextStyle(
+                          fontFamily: "Orbitron",
                           fontSize: 22,
                           fontWeight: FontWeight.w700
                       )),
@@ -161,7 +163,8 @@ class _SelectGameDetailsScreenState extends State<SelectGameDetailsScreen> {
                 padding: const EdgeInsets.only(top : 40), // Reduced padding
                 child: Column(
                   children: [
-                    Text("Choose A Side", style: GoogleFonts.orbitron(
+                    Text("Choose A Side", style: TextStyle(
+                        fontFamily: "Orbitron",
                         fontSize: 24,
                         fontWeight: FontWeight.w700
                     )),
@@ -191,7 +194,8 @@ class _SelectGameDetailsScreenState extends State<SelectGameDetailsScreen> {
                               child: Center(
                                 child: Text(
                                   "x",
-                                  style: GoogleFonts.carterOne(
+                                  style: TextStyle(
+                                    fontFamily: "Orbitron",
                                     color: Colors.red,
                                     fontSize: 100, // Reduced font size
                                   ),
@@ -206,9 +210,9 @@ class _SelectGameDetailsScreenState extends State<SelectGameDetailsScreen> {
                               });
                             },
                             child: Container(
-                              width: 150, // Reduced size
-                              height: 160, // Reduced size
-                              margin: const EdgeInsets.all(10), // Added margin
+                              width: 150,
+                              height: 160,
+                              margin: const EdgeInsets.all(10),
                               decoration: BoxDecoration(
                                 color: Colors.yellow.withOpacity(0.4),
                                 borderRadius: BorderRadius.circular(20),
@@ -219,9 +223,10 @@ class _SelectGameDetailsScreenState extends State<SelectGameDetailsScreen> {
                               child: Center(
                                 child: Text(
                                   "o",
-                                  style: GoogleFonts.carterOne(
+                                  style: TextStyle(
+                                    fontFamily: "Orbitron",
                                     color: Colors.blue,
-                                    fontSize: 100, // Reduced font size
+                                    fontSize: 100,
                                   ),
                                 ),
                               ),
@@ -245,7 +250,8 @@ class _SelectGameDetailsScreenState extends State<SelectGameDetailsScreen> {
                         "PlayerSelectedSymbol" : PlayerSelectedSymbol ?? "x"
                       });
                     }, child: Text("Start Game",
-                      style: GoogleFonts.orbitron(
+                      style: TextStyle(
+                        fontFamily: "Orbitron",
                         color: Colors.white,
                         fontSize: 24,
                       ),
@@ -262,7 +268,8 @@ class _SelectGameDetailsScreenState extends State<SelectGameDetailsScreen> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(bottom: 7,left: 10),
-                      child: Text("Player 1", style: GoogleFonts.orbitron(
+                      child: Text("Player 1", style: TextStyle(
+                          fontFamily: "Orbitron",
                           fontSize: 22,
                           fontWeight: FontWeight.w700
                       )),
@@ -272,7 +279,7 @@ class _SelectGameDetailsScreenState extends State<SelectGameDetailsScreen> {
                         padding: const EdgeInsets.only(left: 20),
                         child: TextFormField(
                           controller: PlayerOneName,
-                          style: GoogleFonts.poppins(color: Colors.black87, fontWeight: FontWeight.w600, fontSize: 18),
+                          style: TextStyle(fontFamily: "Poppins",color: Colors.black87, fontWeight: FontWeight.w600, fontSize: 18),
                           inputFormatters: [
                             LengthLimitingTextInputFormatter(10),
                           ],
@@ -298,7 +305,8 @@ class _SelectGameDetailsScreenState extends State<SelectGameDetailsScreen> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(bottom: 5),
-                      child: Text("Avatar", style: GoogleFonts.orbitron(
+                      child: Text("Avatar", style: TextStyle(
+                          fontFamily: "Orbitron",
                           fontSize: 22,
                           fontWeight: FontWeight.w700
                       )),
@@ -365,7 +373,8 @@ class _SelectGameDetailsScreenState extends State<SelectGameDetailsScreen> {
                               child: Center(
                                 child: Text(
                                   "x",
-                                  style: GoogleFonts.carterOne(
+                                  style: TextStyle(
+                                    fontFamily: "Orbitron",
                                     color: Colors.red,
                                     fontSize: 50, // Reduced font size
                                   ),
@@ -393,7 +402,8 @@ class _SelectGameDetailsScreenState extends State<SelectGameDetailsScreen> {
                               child: Center(
                                 child: Text(
                                   "o",
-                                  style: GoogleFonts.carterOne(
+                                  style: TextStyle(
+                                    fontFamily: "Orbitron",
                                     color: Colors.blue,
                                     fontSize: 50, // Reduced font size
                                   ),
@@ -414,7 +424,8 @@ class _SelectGameDetailsScreenState extends State<SelectGameDetailsScreen> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(bottom: 7,left: 10),
-                      child: Text("Player 2", style: GoogleFonts.orbitron(
+                      child: Text("Player 2", style: TextStyle(
+                          fontFamily: "Orbitron",
                           fontSize: 22,
                           fontWeight: FontWeight.w700
                       )),
@@ -424,7 +435,9 @@ class _SelectGameDetailsScreenState extends State<SelectGameDetailsScreen> {
                         padding: const EdgeInsets.only(left: 20),
                         child: TextFormField(
                           controller: PlayerTwoName,
-                          style: GoogleFonts.poppins(color: Colors.black87, fontWeight: FontWeight.w600, fontSize: 18),
+                          style: TextStyle(
+                              fontFamily: "Poppins",
+                              color: Colors.black87, fontWeight: FontWeight.w600, fontSize: 18),
                           inputFormatters: [
                             LengthLimitingTextInputFormatter(10),
                           ],
@@ -450,7 +463,8 @@ class _SelectGameDetailsScreenState extends State<SelectGameDetailsScreen> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(bottom: 5),
-                      child: Text("Avatar", style: GoogleFonts.orbitron(
+                      child: Text("Avatar", style:TextStyle(
+                          fontFamily: "Orbitron",
                           fontSize: 22,
                           fontWeight: FontWeight.w700
                       )),
@@ -517,9 +531,10 @@ class _SelectGameDetailsScreenState extends State<SelectGameDetailsScreen> {
                               child: Center(
                                 child: Text(
                                   "x",
-                                  style: GoogleFonts.carterOne(
+                                  style: TextStyle(
+                                    fontFamily: "Orbitron",
                                     color: Colors.red,
-                                    fontSize: 50, // Reduced font size
+                                    fontSize: 50,
                                   ),
                                 ),
                               ),
@@ -545,7 +560,8 @@ class _SelectGameDetailsScreenState extends State<SelectGameDetailsScreen> {
                               child: Center(
                                 child: Text(
                                   "o",
-                                  style: GoogleFonts.carterOne(
+                                  style: TextStyle(
+                                    fontFamily: "Orbitron",
                                     color: Colors.blue,
                                     fontSize: 50, // Reduced font size
                                   ),
@@ -578,7 +594,8 @@ class _SelectGameDetailsScreenState extends State<SelectGameDetailsScreen> {
                         }
                       );
                     }, child: Text("Start Game",
-                      style: GoogleFonts.orbitron(
+                      style: TextStyle(
+                        fontFamily: "Orbitron",
                         color: Colors.white,
                         fontSize: 24,
                       ),

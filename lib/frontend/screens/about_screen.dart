@@ -19,9 +19,9 @@ class AboutScreen extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text("Tic", style: GoogleFonts.orbitron(color: Colors.blue[800], fontSize: 35)),
-                Text("Tac", style: GoogleFonts.orbitron(color: Colors.black87, fontSize: 35)),
-                Text("Toe", style: GoogleFonts.orbitron(color: Colors.red[400], fontSize: 35)),
+                Text("Tic", style: TextStyle(color: Colors.blue[800], fontSize: 35,fontFamily: "Orbitron")),
+                Text("Tac", style: TextStyle(color: Colors.black87, fontSize: 35,fontFamily: "Orbitron")),
+                Text("Toe", style: TextStyle(color: Colors.red[400], fontSize: 35,fontFamily: "Orbitron")),
               ],
             ),
           ),
@@ -74,7 +74,8 @@ class AboutScreen extends StatelessWidget {
                             Center(
                               child: Text(
                                 'About the Game',
-                                style: GoogleFonts.orbitron(
+                                style: TextStyle(
+                                  fontFamily: "Orbitron",
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.black,
@@ -86,7 +87,8 @@ class AboutScreen extends StatelessWidget {
                               'A modern take on the classic Tic Tac Toe game with beautiful visuals '
                                   'and smooth gameplay. Challenge the computer or play with friends in '
                                   'local multiplayer mode.',
-                              style: GoogleFonts.poppins(
+                              style: TextStyle(
+                                fontFamily: "Poppins",
                                 fontSize: 16,
                                 color: Colors.black87,
                               ),
@@ -124,16 +126,17 @@ class AboutScreen extends StatelessWidget {
                             const SizedBox(height: 15),
                             Text(
                               'Dhruv Chotai',
-                              style: GoogleFonts.orbitron(
+                              style: TextStyle(
                                 fontSize: 22,
-                                fontWeight: FontWeight.bold,
+                                fontFamily: "Orbitron",
                                 color: Colors.black,
                               ),
                             ),
                             const SizedBox(height: 5),
                             Text(
                               'Flutter Developer | BTech CSE Student',
-                              style: GoogleFonts.poppins(
+                              style: TextStyle(
+                                fontFamily: "Poppins",
                                 fontSize: 16,
                                 color: Colors.black87,
                               ),
@@ -144,7 +147,8 @@ class AboutScreen extends StatelessWidget {
                             const SizedBox(height: 20),
                             Text(
                               'About Me',
-                              style: GoogleFonts.orbitron(
+                              style: TextStyle(
+                                fontFamily: "Orbitron",
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.black,
@@ -155,7 +159,8 @@ class AboutScreen extends StatelessWidget {
                               '2nd year BTech CSE student passionate about building '
                                   'intuitive digital experiences. I specialize in cross-platform '
                                   'development with Flutter and full-stack solutions using MERN stack.',
-                              style: GoogleFonts.poppins(
+                              style: TextStyle(
+                                fontFamily: "Poppins",
                                 fontSize: 15,
                                 color: Colors.black87,
                               ),
@@ -166,7 +171,8 @@ class AboutScreen extends StatelessWidget {
                             Divider(height: 25,thickness: 2,),
                             Text(
                               'Technical Skills',
-                              style: GoogleFonts.orbitron(
+                              style: TextStyle(
+                                fontFamily: "Orbitron",
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.black,
@@ -223,7 +229,8 @@ class AboutScreen extends StatelessWidget {
                                   SizedBox(width: 20,),
                                   Text(
                                     'Contact Me',
-                                    style: GoogleFonts.poppins(
+                                    style: TextStyle(
+                                      fontFamily: "Poppins",
                                       color: Colors.white,
                                       fontSize: 16,
                                       fontWeight: FontWeight.w600,
@@ -240,7 +247,8 @@ class AboutScreen extends StatelessWidget {
                     const SizedBox(height: 20),
                     Text(
                       'Version 1.0.0',
-                      style: GoogleFonts.poppins(
+                      style: TextStyle(
+                        fontFamily: "Poppins",
                         color: Colors.black54,
                         fontStyle: FontStyle.italic,
                       ),
@@ -259,7 +267,8 @@ class AboutScreen extends StatelessWidget {
     return Chip(
       label: Text(
         text,
-        style: GoogleFonts.poppins(
+        style: TextStyle(
+          fontFamily: "Poppins",
           color: Colors.white,
           fontWeight: FontWeight.w500,
         ),

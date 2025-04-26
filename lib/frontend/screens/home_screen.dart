@@ -72,7 +72,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: ElevatedButton(onPressed: (){
                     Navigator.pushNamed(context, "/select_game_details",arguments: {"isGameVsComputer" : true});
                   }, child: Text("Play vs Computer",
-                    style: GoogleFonts.orbitron(
+                    style: TextStyle(
+                      fontFamily: "Orbitron",
                       color: Colors.white,
                       fontSize: 20,
                     ),
@@ -84,7 +85,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: ElevatedButton(onPressed: (){
                     Navigator.pushReplacementNamed(context, "/select_game_details",arguments: {"isGameVsComputer" : false});
                   }, child: Text("Local Multiplayer",
-                    style: GoogleFonts.orbitron(
+                    style: TextStyle(
+                      fontFamily: "Orbitron",
                       color: Colors.white,
                       fontSize: 20,
                     ),
@@ -172,7 +174,8 @@ class _HomeScreenState extends State<HomeScreen> {
       leading: Icon(icon, color: Colors.white),
       title: Text(
         title,
-        style: GoogleFonts.orbitron(
+        style: TextStyle(
+          fontFamily: "Orbitron",
           color: Colors.white,
           fontSize: 18,
         ),

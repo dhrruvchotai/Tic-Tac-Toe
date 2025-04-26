@@ -17,9 +17,9 @@ class HowToPlayScreen extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text("Tic", style: GoogleFonts.orbitron(color: Colors.blue[800], fontSize: 35)),
-                Text("Tac", style: GoogleFonts.orbitron(color: Colors.black87, fontSize: 35)),
-                Text("Toe", style: GoogleFonts.orbitron(color: Colors.red[400], fontSize: 35)),
+                Text("Tic", style: TextStyle(color: Colors.blue[800], fontSize: 35,fontFamily: "Orbitron",)),
+                Text("Tac", style: TextStyle(color: Colors.black87, fontSize: 35,fontFamily: "Orbitron",)),
+                Text("Toe", style: TextStyle(color: Colors.red[400], fontSize: 35,fontFamily: "Orbitron",)),
               ],
             ),
           ),
@@ -101,7 +101,8 @@ class HowToPlayScreen extends StatelessWidget {
                             ),
                             child: Text(
                               "Have fun playing!",
-                              style: GoogleFonts.poppins(
+                              style: TextStyle(
+                                fontFamily: "Poppins",
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.black,
@@ -135,7 +136,8 @@ class HowToPlayScreen extends StatelessWidget {
           child: Center(
             child: Text(
               '$number',
-              style: GoogleFonts.poppins(
+              style: TextStyle(
+                fontFamily: "Poppins",
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
               ),
@@ -149,7 +151,8 @@ class HowToPlayScreen extends StatelessWidget {
             children: [
               Text(
                 title,
-                style: GoogleFonts.orbitron(
+                style: TextStyle(
+                  fontFamily: "Orbitron",
                   fontSize: 18,
                   fontWeight: FontWeight.w600,
                   color: Colors.black,
@@ -158,7 +161,8 @@ class HowToPlayScreen extends StatelessWidget {
               const SizedBox(height: 5),
               Text(
                 description,
-                style: GoogleFonts.poppins(
+                style: TextStyle(
+                  fontFamily: "Poppins",
                   fontSize: 16,
                   color: Colors.black87,
                 ),

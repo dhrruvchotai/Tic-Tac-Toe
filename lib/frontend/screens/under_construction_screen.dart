@@ -18,9 +18,9 @@ class UnderConstructionScreen extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text("Tic ", style: GoogleFonts.orbitron(color: Colors.blue[800], fontSize: 35)),
-                Text("Tac ", style: GoogleFonts.orbitron(color: Colors.black87, fontSize: 35)),
-                Text("Toe", style: GoogleFonts.orbitron(color: Colors.red[400], fontSize: 35)),
+                Text("Tic ", style: TextStyle(color: Colors.blue[800], fontSize: 35,fontFamily: "Orbitron")),
+                Text("Tac ", style: TextStyle(color: Colors.black87, fontSize: 35,fontFamily: "Orbitron")),
+                Text("Toe", style: TextStyle(color: Colors.red[400], fontSize: 35,fontFamily: "Orbitron")),
               ],
             ),
           ),
