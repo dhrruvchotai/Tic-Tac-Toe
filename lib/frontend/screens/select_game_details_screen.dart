@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:tic_tac_toe/frontend/constants/user_constants.dart';
+import 'package:tic_tac_toe/frontend/constants/image_paths.dart';
 
 class SelectGameDetailsScreen extends StatefulWidget {
   final bool?  isGameVsComputer;
@@ -13,12 +13,21 @@ class SelectGameDetailsScreen extends StatefulWidget {
 }
 
 class _SelectGameDetailsScreenState extends State<SelectGameDetailsScreen> {
-  int SelectedAvatarIndex = 0;
-  String SelectedUserSymbol = "x";
+  //For Playing Vs Computer
+  int PlayerSelectedAvatarIndex = 0;
+  String PlayerSelectedSymbol = "x";
+
+  //For Local Multiplayer
   int PlayerOneSelectedAvatarIndex = 0;
   int PlayerTwoSelectedAvatarIndex = 2;
   String PlayerOneSelectedSymbol = "x";
   String PlayerTwoSelectedSymbol = "o";
+
+  //For Playing Vs Computer
+  TextEditingController PlayerName = TextEditingController(text: "Player");
+  //For Local Multiplayer
+  TextEditingController PlayerOneName = TextEditingController(text: "Player 1");
+  TextEditingController PlayerTwoName = TextEditingController(text: "Player 2");
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +64,7 @@ class _SelectGameDetailsScreenState extends State<SelectGameDetailsScreen> {
                   borderRadius: BorderRadius.circular(12), // Slightly larger border radius
                 ),
                 child: const Icon(
-                  CupertinoIcons.back,
+                  Icons.arrow_back,
                   size: 30, // Increased icon size
                 ),
               ),
@@ -85,6 +94,7 @@ class _SelectGameDetailsScreenState extends State<SelectGameDetailsScreen> {
                       child: Padding(
                         padding: const EdgeInsets.only(left: 15),
                         child: TextFormField(
+                          controller: PlayerName,
                           style: GoogleFonts.poppins(color: Colors.black87, fontWeight: FontWeight.w600, fontSize: 18),
                           inputFormatters: [
                             LengthLimitingTextInputFormatter(10),
@@ -117,27 +127,27 @@ class _SelectGameDetailsScreenState extends State<SelectGameDetailsScreen> {
                       )),
                     ),
                     const SizedBox(width: 20),
-                    for (int i = 0; i < UserConstants().AVATARS.length; i++)
+                    for (int i = 0; i < ImagePaths().AVATARS.length; i++)
                       Padding(
                         padding: const EdgeInsets.only(right: 10),
                         child: GestureDetector(
                           onTap: () {
                             setState(() {
-                              SelectedAvatarIndex = i;
+                              PlayerSelectedAvatarIndex = i;
                             });
                           },
                           child: Container(
                             padding: const EdgeInsets.all(2),
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
-                              border: SelectedAvatarIndex == i
+                              border: PlayerSelectedAvatarIndex == i
                                   ? Border.all(color: Colors.red, width: 2)
                                   : null,
                             ),
                             child: CircleAvatar(
                               child: Image.asset(
-                                UserConstants().AVATARS[i],
-                                width: SelectedAvatarIndex == i ? 50 : 40,
+                                ImagePaths().AVATARS[i],
+                                width: PlayerSelectedAvatarIndex == i ? 50 : 40,
                               ),
                               minRadius: 1,
                             ),
@@ -164,7 +174,7 @@ class _SelectGameDetailsScreenState extends State<SelectGameDetailsScreen> {
                           GestureDetector(
                             onTap: () {
                               setState(() {
-                                SelectedUserSymbol = "x";
+                                PlayerSelectedSymbol = "x";
                               });
                             },
                             child: Container(
@@ -174,7 +184,7 @@ class _SelectGameDetailsScreenState extends State<SelectGameDetailsScreen> {
                               decoration: BoxDecoration(
                                 color: Colors.yellow.withOpacity(0.4),
                                 borderRadius: BorderRadius.circular(20),
-                                border: SelectedUserSymbol == "x"
+                                border: PlayerSelectedSymbol == "x"
                                     ? Border.all(color: Colors.red, width: 3,)
                                     : null,
                               ),
@@ -192,7 +202,7 @@ class _SelectGameDetailsScreenState extends State<SelectGameDetailsScreen> {
                           GestureDetector(
                             onTap: () {
                               setState(() {
-                                SelectedUserSymbol = "o";
+                                PlayerSelectedSymbol = "o";
                               });
                             },
                             child: Container(
@@ -202,7 +212,7 @@ class _SelectGameDetailsScreenState extends State<SelectGameDetailsScreen> {
                               decoration: BoxDecoration(
                                 color: Colors.yellow.withOpacity(0.4),
                                 borderRadius: BorderRadius.circular(20),
-                                border: SelectedUserSymbol == "o"
+                                border: PlayerSelectedSymbol == "o"
                                     ? Border.all(color: Colors.red, width: 3)
                                     : null,
                               ),
@@ -229,7 +239,11 @@ class _SelectGameDetailsScreenState extends State<SelectGameDetailsScreen> {
                     width: 300,
                     height: 70,
                     child: ElevatedButton(onPressed: (){
-                      Navigator.pushReplacementNamed(context, "/play_vs_computer",);
+                      Navigator.pushReplacementNamed(context, "/play_vs_computer",arguments: {
+                        "PlayerName" : PlayerName.text ?? "Player",
+                        "PlayerSelectedAvatarIndex" : PlayerSelectedAvatarIndex ?? 0,
+                        "PlayerSelectedSymbol" : PlayerSelectedSymbol ?? "x"
+                      });
                     }, child: Text("Start Game",
                       style: GoogleFonts.orbitron(
                         color: Colors.white,
@@ -253,10 +267,11 @@ class _SelectGameDetailsScreenState extends State<SelectGameDetailsScreen> {
                           fontWeight: FontWeight.w700
                       )),
                     ),
-                    Expanded( // Added Expanded to prevent overflow
+                    Expanded(
                       child: Padding(
                         padding: const EdgeInsets.only(left: 20),
                         child: TextFormField(
+                          controller: PlayerOneName,
                           style: GoogleFonts.poppins(color: Colors.black87, fontWeight: FontWeight.w600, fontSize: 18),
                           inputFormatters: [
                             LengthLimitingTextInputFormatter(10),
@@ -289,7 +304,7 @@ class _SelectGameDetailsScreenState extends State<SelectGameDetailsScreen> {
                       )),
                     ),
                     const SizedBox(width: 20),
-                    for (int i = 0; i < UserConstants().AVATARS.length; i++)
+                    for (int i = 0; i < ImagePaths().AVATARS.length; i++)
                       Padding(
                         padding: const EdgeInsets.only(right: 10),
                         child: GestureDetector(
@@ -308,7 +323,7 @@ class _SelectGameDetailsScreenState extends State<SelectGameDetailsScreen> {
                             ),
                             child: CircleAvatar(
                               child: Image.asset(
-                                UserConstants().AVATARS[i],
+                                ImagePaths().AVATARS[i],
                                 width: PlayerOneSelectedAvatarIndex == i ? 50 : 40,
                               ),
                               minRadius: 1,
@@ -408,6 +423,7 @@ class _SelectGameDetailsScreenState extends State<SelectGameDetailsScreen> {
                       child: Padding(
                         padding: const EdgeInsets.only(left: 20),
                         child: TextFormField(
+                          controller: PlayerTwoName,
                           style: GoogleFonts.poppins(color: Colors.black87, fontWeight: FontWeight.w600, fontSize: 18),
                           inputFormatters: [
                             LengthLimitingTextInputFormatter(10),
@@ -440,7 +456,7 @@ class _SelectGameDetailsScreenState extends State<SelectGameDetailsScreen> {
                       )),
                     ),
                     const SizedBox(width: 20),
-                    for (int i = 0; i < UserConstants().AVATARS.length; i++)
+                    for (int i = 0; i < ImagePaths().AVATARS.length; i++)
                       Padding(
                         padding: const EdgeInsets.only(right: 10),
                         child: GestureDetector(
@@ -459,7 +475,7 @@ class _SelectGameDetailsScreenState extends State<SelectGameDetailsScreen> {
                             ),
                             child: CircleAvatar(
                               child: Image.asset(
-                                UserConstants().AVATARS[i],
+                                ImagePaths().AVATARS[i],
                                 width: PlayerTwoSelectedAvatarIndex == i ? 50 : 40,
                               ),
                               minRadius: 1,
@@ -550,7 +566,17 @@ class _SelectGameDetailsScreenState extends State<SelectGameDetailsScreen> {
                     width: 300,
                     height: 70,
                     child: ElevatedButton(onPressed: (){
-                      Navigator.pushReplacementNamed(context, "/local_multiplayer");
+                      Navigator.pushReplacementNamed(
+                        context, "/local_multiplayer",
+                        arguments:{
+                          "PlayerOneName":PlayerOneName.text,
+                          "PlayerOneSelectedAvatarIndex":PlayerOneSelectedAvatarIndex,
+                          "PlayerOneSelectedSymbol" : PlayerOneSelectedSymbol,
+                          "PlayerTwoName" : PlayerTwoName.text,
+                          "PlayerTwoSelectedAvatarIndex": PlayerTwoSelectedAvatarIndex,
+                          "PlayerTwoSelectedSymbol" : PlayerTwoSelectedSymbol
+                        }
+                      );
                     }, child: Text("Start Game",
                       style: GoogleFonts.orbitron(
                         color: Colors.white,

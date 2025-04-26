@@ -70,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   width: 300,
                   height: 70,
                   child: ElevatedButton(onPressed: (){
-                    Navigator.pushReplacementNamed(context, "/select_game_details",arguments: {"isGameVsComputer" : true});
+                    Navigator.pushNamed(context, "/select_game_details",arguments: {"isGameVsComputer" : true});
                   }, child: Text("Play vs Computer",
                     style: GoogleFonts.orbitron(
                       color: Colors.white,
@@ -128,24 +128,21 @@ class _HomeScreenState extends State<HomeScreen> {
               icon: Icons.settings,
               title: 'Game Settings',
               onTap: () {
-                // Navigate to settings
-                Navigator.pop(context);
+               Navigator.pushNamed(context, "/under_construction");
               },
             ),
             _buildDrawerItem(
               icon: Icons.help,
               title: 'How to Play',
               onTap: () {
-                // Show help
-                Navigator.pop(context);
+                Navigator.pushNamed(context, "/how_to_play");
               },
             ),
             _buildDrawerItem(
               icon: Icons.info,
               title: 'About',
               onTap: () {
-                // Show about
-                Navigator.pop(context);
+                Navigator.pushNamed(context, "/about");
               },
             ),
 
@@ -157,8 +154,7 @@ class _HomeScreenState extends State<HomeScreen> {
               icon: Icons.person,
               title: 'Profile',
               onTap: () {
-                // Show profile
-                Navigator.pop(context);
+                Navigator.pushNamed(context, "/under_construction");
               },
             ),
           ],
